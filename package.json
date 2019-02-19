@@ -1,8 +1,8 @@
 {
   "name": "@kushnarang/css",
   "version": "1.0.0",
-  "description": "Simple CSS block management in JavaScript.",
-  "main": "./src/index.js",
+  "description": "Simple CSS addition from JavaScript.",
+  "main": "./dist/css.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack"
@@ -12,10 +12,9 @@
     "url": "git+https://github.com/kushnarang/css.git"
   },
   "keywords": [
-    "text",
-    "math",
-    "length",
-    "time"
+    "css",
+    "styling",
+    "stylesheet"
   ],
   "author": "Kush Narang",
   "license": "MIT",
