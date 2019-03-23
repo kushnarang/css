@@ -43,7 +43,10 @@ module.exports = {
 	  minimizer: [new UglifyJsPlugin({
 		include: /\.min\.js$/
 	  })]
-	}
+	},
+	node: {
+		fs: 'empty'
+	  }
 };
 
 // /\.min\.js$/

@@ -2,12 +2,35 @@
 <html>
 	<head>
 		<script src="../dist/css.js"></script>
-		<style>body {background: red;}</style>
+		<!-- <style>body {background: red;}</style> -->
 	</head>
 	<body>
-
+		<div>hello</div>
 	</body>
 	<script>
-		css("body {background: blue;}");
+		css(`
+		body
+		{
+			background: blue;
+		}
+		div, a
+		{
+			background: red;
+		}
+		`);
+
+		// @media only screen and (max-width: 600px)
+		// {
+		// 	body
+		// 	{
+		// 		background: purple;
+		// 	}	
+		// }
+		// @font-face
+		// {
+		// 	font-family: "Open Sans";
+		// 	src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+		// 	url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+		// }
 	</script>
 </html>

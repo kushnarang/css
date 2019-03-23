@@ -27,5 +27,7 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "css": "^2.2.4"
+  }
 }
