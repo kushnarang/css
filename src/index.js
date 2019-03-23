@@ -19,7 +19,7 @@ function css(userRule)
 	var rules = cssParser.parse(userRule);
 	console.timeEnd("parser");
 
-	console.log(rules);
+	// console.log(rules);
 	var errors = rules.stylesheet.parsingErrors;
 	if(errors.length) return false;
 
@@ -27,26 +27,46 @@ function css(userRule)
 	
 	rules.forEach(function(rule)
 	{
-		// console.log(LastDOMSheet);
-		// console.log(rule);
-		var selector = rule.selectors.join(", ");
-		console.log(rule.selectors);
+		var type = rule.type;
+		var selector = rule.selectors ? rule.selectors.join(", ") : "@" + rule.type + " " + (rule[type] ? rule[type] : "");
 
-		var declarations = rule.declarations;
+		var declarations = (rule.declarations || rule.rules);
+		// console.log(declarations);
 
 		var properties = [];
 
 		declarations.forEach(function(declaration)
 		{
-			var property = declaration.property;
-			var value = declaration.value;
-			// console.log(property + ":", value);
-			properties.push(property + ": " + value + ";")
+			if(declaration.type == "rule")
+			{
+				var subSelector = declaration.selectors ? declaration.selectors.join(", ") : "@" + declaration.type + " " + (declaration[declaration.type] ? declaration[declaration.type] : "");
+				// console.log(subSelector);
+
+				var subProperties = [];
+
+				declaration.declarations.forEach(function(subDeclaration)
+				{
+					// console.log(subDeclaration);
+
+					var property = subDeclaration.property;
+					var value = subDeclaration.value;
+					// console.log(property + ":", value);
+					subProperties.push(property + ": " + value + ";");
+				});
+
+				properties.push(subSelector + "{" + subProperties.join(" ") + "}");
+			}
+			else
+			{
+				var property = declaration.property;
+				var value = declaration.value;
+				// console.log(property + ":", value);
+				properties.push(property + ": " + value + ";");
+			}
 		});
 
-		// console.log(properties);
-
-		var finalString = selector + "{" + properties + "}";
+		console.log(properties)
+		var finalString = selector + "{" + properties.join(" ") + "}";
 		console.log(finalString);
 
 		LastDOMSheet.insertRule(finalString, (LastDOMSheet.cssRules || LastDOMSheet.rules).length);

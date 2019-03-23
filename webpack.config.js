@@ -46,7 +46,8 @@ module.exports = {
 	},
 	node: {
 		fs: 'empty'
-	  }
+	},
+	mode: "development"
 };
 
 // /\.min\.js$/
