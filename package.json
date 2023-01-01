@@ -24,8 +24,8 @@
   "homepage": "https://github.com/kushnarang/css#readme",
   "devDependencies": {
     "uglifyjs-webpack-plugin": "^2.1.1",
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {}
 }
